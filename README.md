@@ -1,7 +1,7 @@
 # Tazama: A Christmas Edition
 A Django movie recommendation web app with a perfectly curated list of the top-rated Christmas holiday movies 
 
-For an interactive view of Tazama: A Christmas Edition, visit https://xmas.tazama.tech
+> **For an interactive view of Tazama: A Christmas Edition**, visit https://xmas.tazama.tech
 
 ![Screenshot from 2023-12-14 11-24-57](https://github.com/Mythamor/Tazama-A_Christmas_Edition/assets/113252977/90516054-475a-458a-8496-070922a2bcc8)
 
