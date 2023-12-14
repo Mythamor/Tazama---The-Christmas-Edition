@@ -1,0 +1,52 @@
+{% extends 'movies/base.html' %}
+{% load static %}
+{% block content %}
+
+    <!------------------ Recommendation Cards -------------------------->
+    <section id="recommendations">
+      <div class="background">
+        <h3 style="text-align:center; color: #333333;">Recommendations on {{ request.GET.query }}</h3>
+        <div class="gallery">
+          {% for movie in details_list%}
+            <div class="card">
+              <figure>
+                <img src="{{movie.poster_url}}" alt="{{movie.title}} poster">
+              </figure>
+              <div class="movie-title">
+                <h6>{{movie.title}}</h6>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+        <div>
+           <button type="button" class="btn btn-info p-3 m-5" style="font-size:1.5rem" onclick="goBack()">Get More Recommendations</button>
+        </div>
+        <audio id="play" controls autoplay style="display: none;">
+          <source src="{% static 'movies/xmas.mp3' %}" type="audio/mpeg">
+        Your browser does not support the audio element.
+        </audio>
+      </div>
+      <div class="bubbles">
+        <img src="{% static 'movies/images/bell.png' %}">
+        <img src="{% static 'movies/images/snowflake.png' %}">
+        <img src="{% static 'movies/images/snowflak3.png' %}">
+        <img src="{% static 'movies/images/m.png' %}" style="fill: #fff;">
+        <img src="{% static 'movies/images/e.png' %}" style="color: white">
+        <img src="{% static 'movies/images/r.png' %}" style="fill: #fff;" >
+        <img src="{% static 'movies/images/ro.png' %}" style="color: white;">
+        <img src="{% static 'movies/images/y.png' %}">
+        <img src="{% static 'movies/images/snowflake.png' %}">
+        <img src="{% static 'movies/images/snowflake3.png' %}">
+        <img src="{% static 'movies/images/bell.png' %}">
+      </div>
+  </section>
+  <script>
+    // Autoplay the audio when the page loads
+    window.onload = function () {
+      var audio = document.getElementById("play");
+      audio.play();
+    };
+  </script>
+
+{% endblock %}
+    

@@ -1,0 +1,179 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.background {
+    /*background: linear-gradient(to bottom, #FBD490, #F7A5CB);*/
+    background-image: url('../movies/images/reco_cover2.jpeg');
+    background-size: cover;
+    background-position: top center;
+    z-index: -1;
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    margin-top: -50px;
+}
+
+.gallery {
+    display: flex;
+    left: calc(50% - 330px);
+    min-height: 300px;
+
+}
+
+.card {
+    position: relative;
+    left: 0px;
+    width: 230px;
+    height: 310px;
+    background: linear-gradient(to right, #93A5CF, #EAEfE9);
+    border-radius: 8px;
+    transition: 1s ease-in-out;
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.5);
+}
+
+.card:not(:first-child) {
+    margin-left: -45px;
+}
+
+.card:hover {
+    transform: translateY(-16px);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.card:hover ~ .card {
+    left: 55px;
+}
+
+.card img {
+    width: 230px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.movie-title {
+    padding-bottom: 10px;
+}
+
+.card h6{
+    text-align: center;
+    color: #333333 !important;
+}
+
+
+
+/* Media query for smaller screens */
+@media only screen and (max-width: 768px) {
+    
+    .background{
+        margin-top: -20px;
+    }
+
+    h3 {
+        padding-top: 30px;
+    }
+
+    .gallery {
+        flex-direction: column; /* Stack cards vertically on smaller screens */
+        align-items: center; /* Center the flex items vertically */
+        margin: 30px 0;
+    }
+
+    .card {
+        width: 75%; /* Adjust the width for smaller screens */
+        margin: 2% 0; /* Add some margin between cards */
+    }
+
+    .card img {
+        width: 230px;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 4px;
+    }
+
+}
+
+
+/******** Snowflake Animation ********/
+.bubbles img {
+	width: 50px;
+	animation: bubble 7s linear infinite;
+    fill: white;
+}
+
+.bubbles img:nth-child(1){
+	animation-delay: 2s;
+	width: 40px;
+}
+.bubbles img:nth-child(2){
+        animation-delay: 1s;
+	width: 35px;
+}
+.bubbles img:nth-child(3){
+        animation-delay: 3s;
+	width: 30px;
+}
+.bubbles img:nth-child(4){
+        animation-delay: 5s;
+	width: 40px;
+}
+.bubbles img:nth-child(5){
+        animation-delay: 4s;
+}
+.bubbles img:nth-child(6){
+        animation-delay: 7s;
+	width: 30px;
+}
+.bubbles img:nth-child(7){
+        animation-delay: 6s;
+	width: 35px;
+}
+.bubbles img:nth-child(8){
+    animation-delay: 5s;
+width: 40px;
+}
+.bubbles img:nth-child(9){
+    animation-delay: 2s;
+}
+.bubbles img:nth-child(10){
+    animation-delay: 1s;
+width: 30px;
+}
+.bubbles img:nth-child(11){
+    animation-delay: 3s;
+width: 35px;
+}
+
+.bubbles {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	position: absolute;
+	bottom: -70px;
+}
+
+
+@keyframes bubble {
+	0% {
+		transform: translateY(0);
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
+	70% {
+                opacity: 1;
+        }
+	100% {
+                transform: translateY(-80vh);
+                opacity: 0;
+        }
+}
+
+

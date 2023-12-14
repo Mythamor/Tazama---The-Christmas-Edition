@@ -1,0 +1,153 @@
+/*** Ubuntu/Lora Montserrat/Poppins Fonts ***/
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Montserrat:wght@300;400;700&family=Poppins&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Monoton&family=Permanent+Marker&effect=emboss|shadow-multiple&display=swap');
+
+
+/********** Base Settings **********/
+:root{
+    --black: #fff;
+    --title-font: 'Ubuntu';
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    scroll-behavior: smooth;
+    font-family: 'Lora', serif;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+body {
+    background: #fafafa;
+    color: #333333;
+    margin-top: 5rem;
+    overflow-x: hidden;
+    /*font-family: 'Monoton', cursive;*/
+}
+/*
+.container {
+    min-height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}*/
+
+a {
+    text-decoration: none;
+}
+
+img {
+   height: 100%;
+   width: 100%;
+   object-fit: cover;
+}
+
+
+  h1, h2, h3, h4, h5, h6 {
+    color: #444444;
+  }
+  
+  ul {
+    margin: 0;
+  }
+  
+  /************************* NavBar **************************/
+  .bg-steel {
+    background-image:  url("../movies/images/nav2/x.jpg");
+    background-position: bottom left;
+  }
+  
+  .site-header .navbar-nav .nav-link {
+    color: #333333;
+    font-weight: 800;
+    font-size: 1.2rem;
+  }
+  
+  .site-header .navbar-nav .nav-link:hover {
+    color: #ffffff;
+  }
+  
+  .site-header .navbar-nav .nav-link.active {
+    font-weight: 500;
+  }
+  
+  .nav-link {
+    color: #fff !important;
+  }
+
+  .navbar-brand {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 1.5rem;
+    color: #fff !important;
+    font-weight: 800;
+  }
+
+
+  /************* Footer ********************/
+ footer {
+	margin: 80px 0 10px;
+	text-align: center;
+}
+
+footer a{
+	text-decoration: none;
+	color: #999;
+	font-size: 40px;
+	margin: 0 10px;
+    
+}
+
+footer i {
+    transition: all .5s ease-in-out;
+}
+
+footer i:hover{
+    transform: translateY(-.30rem);
+    transform: scale(1.5);
+    background-color: black;
+    border: 1px solid goldenrod;
+    border-radius: 8px;
+    stroke: white;
+    stroke-width: 1.75;
+}
+
+
+footer hr {
+	background: #999;
+	height: 1px;
+	width: 100%;
+	border: 0;
+	margin: 20px 0;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+footer p {
+	padding-bottom: 15px;
+    color: #999;
+    font-weight: 900;
+}
+
+
+
+
+ /********//*********** Scroll Bar ****************/
+::-webkit-scrollbar{
+    width: .6rem;
+    border-radius: .5rem;
+    background-color: hsl(0, 0%, 10%);
+}
+
+::-webkit-scrollbar-thumb{
+    border-radius: .5rem;
+    background-color: hsl(0, 0%, 20%);
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background-color: hsl(0, 0%, 30%);
+}

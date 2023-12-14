@@ -1,0 +1,112 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="keywords" content="Python, Django, Movies, Recommendations, Blog, Tazama" />
+  <meta name="description" content="Movie Recommendation Engine, Movie Recommendation Web App" />
+  <meta name="author" content="Mithamo Beth" />
+
+  <link rel="icon" type="image/png" sizes="16x16" href="{% static 'movies/images/favicon/favicon-16x16.png' %}" />
+  
+  <!--  JQuery -->
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" type="text/css" href="{% static 'movies/home.css' %}">
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu&effect=neon|outline|emboss|shadow-multiple" />
+  <script src="https://kit.fontawesome.com/98d7ad45d3.js" crossorigin="anonymous"></script>
+  <title>Tazama</title>
+</head>
+
+<body>
+  <section id="hero">
+    <div class="hero background">
+      <!----------- Navigation Bar -------------->
+      <div class="menu__wrapper">
+        <div class="menu__bar">
+          <p class="logo" onclick="refreshPage()"><b>taz</b><span>ama</span></p>
+          <p class="tagline">
+            <span class="slide1">Where your next watch&nbsp;</span>
+            <span class="slide2">Is a perfect match</span>
+          </p>
+          <img class="menu-icon"
+            src="{% static 'movies/images/menu.png' %}" style="color:white;"
+            title="Burger Menu" 
+            alt="Burger Menu"  onclick="toggleMenu(this)"
+          >
+          <ul class="navigation">
+            <li><a href="{% url 'movies-home' %}"></a>Home</li>
+            <li><img class="bell" src="{% static 'movies/images/bell.png' %}" alt=""></li>
+            <li><img class="bell" src="{% static 'movies/images/snowflake3.png' %}" alt=""></li>
+            <li><img class="bell" src="{% static 'movies/images/bell.png' %}" alt=""></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="hero-content">
+        <div id="hero_title" class="hero-title">
+          <h1 id="main_title" class="font-effect-outline">Yule Love It! </h1>
+          <h1 id="secondary_title" class="font-effect-outline">With Our Christmas Movie Picks!</h1>
+        </div>
+        <div id="toggle_button" class="hero-button">
+          <button onclick="toggleFormAndOptions()">
+            Get a recommendation <span class="raquo">&raquo;</span>
+          </button>
+        </div>
+    
+        <div id="search_form" class="search-bar" style="display: none">
+          <form id="recommendation_form" method="GET" action="{% url 'movie_recommend' %}">
+            <div class="movie-input">
+              <label for="movie">Get a recommendation based on genre</label>
+              <input type="search" 
+                     id="movie" 
+                     name="query" 
+                     value="{{ request.GET.query }}" 
+                     placeholder="Choose a movie genre(s)" 
+                     autocomplete="on" 
+                     title="Get a recommendation based on genre"/>
+            </div>
+            <input type="submit" value="Recommend" />
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+    
+ <!-- JQuery JS & UI -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script type="text/javascript" src="{% static '../static/movies/js/home.js' %}"></script>  
+  <script>
+    $(function () {
+      $("#movie").autocomplete({
+        source: function (request, response) {
+          // AJAX request to get movie recommendations as the user types
+          $.ajax({
+            url: "/search/",  // Replace with your actual API endpoint
+            dataType: "json",
+            data: {
+              query: request.term,
+            },
+            success: function (data) {
+              response(data.data);
+            },
+          });
+        },
+        minLength: 1,  // Minimum characters before triggering autocomplete
+        select: function (event, ui) {
+          // Handle the selection of a movie
+          console.log("Selected movie:", ui.item.label);
+        },
+      });
+    });
+
+    // Javascript for menu burger and close image
+    const burgerImagePath = "{% static 'movies/images/menu.png' %}";
+    const closeImagePath = "{% static 'movies/images/close.png' %}";    
+  </script>
+</body>
+</html>
